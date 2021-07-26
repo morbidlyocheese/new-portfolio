@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Damien Darko - Art</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="./styles/art.css">
+    <script>
+        var isNS = (navigator.appName == "Netscape") ? 1 : 0;
+        if (navigator.appName == "Netscape") document.captureEvents(Event.MOUSEDOWN || Event.MOUSEUP);
+        function mischandler() {
+            return false;
+        }
+        function mousehandler(e) {
+            var myevent = (isNS) ? e : event;
+            var eventbutton = (isNS) ? myevent.which : myevent.button;
+            if ((eventbutton == 2) || (eventbutton == 3)) return false;
+        }
+        document.oncontextmenu = mischandler;
+        document.onmousedown = mousehandler;
+        document.onmouseup = mousehandler;
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="links">
+            <a class='link' href="./index.html">Home</a>
+            <a class='link' href="./about.html">About</a>
+            <a class='link' href="./skills.html">Skills</a>
+            <a class='link' href="./projects.html">Projects</a>
+            <a class='link' href="./blog_list.html">Blog</a>
+            <a class='link' href="./art.html">Art</a>
+        </div>
+        <div class="body_container">
+            <div class="sidebar_container">
+                <div class="sidebar_item-icon">
+                    <img class='icon-me' src="./data/me.jpg" alt="me">
+                </div>
+                <div class="sidebar_item sidebar_item-1">
+                    <a href="mailto:damienjdarko@gmail.com" target='_blank' rel="noopener noreferrer">
+                        <img src="./data/Email-595b40b65ba036ed117d10ee.svg" alt="email">
+                    </a>
+                </div>
+                <div class="sidebar_item sidebar_item-2">
+                    <a href="https://github.com/djangothesolarboy" target='_blank' rel="noopener noreferrer">
+                        <img src="./data/Github-595b40b75ba036ed117d609e.svg" alt="github">
+                    </a>
+                </div>
+                <div class="sidebar_item sidebar_item-3">
+                    <a href="https://www.linkedin.com/in/damien-darko/" target='_blank' rel="noopener noreferrer">
+                        <img src="./data/Linkedin-595b40b75ba036ed117d708c.svg" alt="linkedin">
+                    </a>
+                </div>
+                <div class="sidebar_item sidebar_item-4">
+                    <a href="https://twitter.com/DamienjDarko" target='_blank' rel="noopener noreferrer">
+                        <img src="./data/Twitter-595b40b75ba036ed117d72ad.svg" alt="twitter">
+                    </a>
+                </div>
+                <div class="sidebar_item sidebar_item-5">
+                    <a class='resume' href="./damien_darko_resume.pdf" download>
+                        <!-- icon from -> https://icons8.com/icons/set/resume -->
+                        <img class='resume-icon' src="./data/resume-icon.png" alt="resume download">
+                    </a>
+                </div>
+            </div>
+            <div class="main_container">
+                <div class="main_content">
+                    <h1 class="art-title">Art Gallery</h1>
+                    <p class="art-content">Damien has been drawing ever since he could pick up a pencil. Over the years he has drawn traditionally, to digitally, and even pixel art. Here is a gallery of some of the art he has done over the years. Enjoy!</p>
+                </div>
+                <div class="img-gallery_container">
+                    <div class="img">
+                        <img class='img-gallery' src="./img-gallery/1406158050081.jpg" alt="">
+                    </div>
+                    <div class="img">
+                        <img class='img-gallery' src="./img-gallery/amongCrashers.png" alt="">
+                    </div>
+                    <div class="img">
+                        <img class='img-gallery' src="./img-gallery/amongFrank.png" alt="">
+                    </div>
+                    <div class="img">
+                        <img class='img-gallery' src="./img-gallery/amonguscharacterorange.png" alt="">
+                    </div>
+                    <div class="img">
+                        <img class='img-gallery' src="./img-gallery/amonguscharacterorange-vector.png" alt="">
+                    </div>
+                    <div class="img">
+                        <img class='img-gallery' src="./img-gallery/dexter color.png" alt="">
+                    </div>
+                    <div class="img">
+                        <img class='img-gallery' src="./img-gallery/dipper fly.png" alt="">
+                    </div>
+                    <div class="img">
+                        <img class='img-gallery' src="./img-gallery/eustaceFume.png" alt="">
+                    </div>
+                    <div class="img">
+                        <img class='img-gallery' src="./img-gallery/garg.png" alt="">
+                    </div>
+                    <div class="img">
+                        <img class='img-gallery' src="./img-gallery/glowtoad.png" alt="">
+                    </div>
+                    <div class="img">
+                        <img class='img-gallery' src="./img-gallery/gnar.png" alt="">
+                    </div>
+                    <div class="img">
+                        <img class='img-gallery' src="./img-gallery/knuckles.png" alt="">
+                    </div>
+                    <div class="img">
+                        <img class='img-gallery' src="./img-gallery/korvo.jpg" alt="">
+                    </div>
+                    <div class="img">
+                        <img class='img-gallery' src="./img-gallery/mecolor.png" alt="">
+                    </div>
+                    <div class="img">
+                        <img class='img-gallery' src="./img-gallery/neocortex.png" alt="">
+                    </div>
+                    <div class="img">
+                        <img class='img-gallery' src="./img-gallery/nito.png" alt="">
+                    </div>
+                    <div class="img">
+                        <img class='img-gallery' src="./img-gallery/otenko-color-letter.png" alt="">
+                    </div>
+                    <div class="img">
+                        <img class='img-gallery' src="./img-gallery/paaatriiiick.jpg" alt="">
+                    </div>
+                    <div class="img">
+                        <img class='img-gallery' src="./img-gallery/rick.png" alt="">
+                    </div>
+                    <div class="img">
+                        <img class='img-gallery' src="./img-gallery/pickle.png" alt="">
+                    </div>
+                    <div class="img">
+                        <img class='img-gallery' src="./img-gallery/poro-color-digi.png" alt="">
+                    </div>
+                    <div class="img">
+                        <img class='img-gallery' src="./img-gallery/sans.png" alt="">
+                    </div>
+                    <div class="img">
+                        <img class='img-gallery' src="./img-gallery/sBomb.png" alt="">
+                    </div>
+                    <div class="img">
+                        <img class='img-gallery' src="./img-gallery/Sharknaut.png" alt="">
+                    </div>
+                    <div class="img">
+                        <img class='img-gallery' src="./img-gallery/skull2.png" alt="">
+                    </div>
+                    <div class="img">
+                        <img class='img-gallery' src="./img-gallery/skull3.png" alt="">
+                    </div>
+                    <div class="img">
+                        <img class='img-gallery' src="./img-gallery/skull4.png" alt="">
+                    </div>
+                    <div class="img">
+                        <img class='img-gallery' src="./img-gallery/snek.png" alt="">
+                    </div>
+                    <div class="img">
+                        <img class='img-gallery' src="./img-gallery/solaire.png" alt="">
+                    </div>
+                    <div class="img">
+                        <img class='img-gallery' src="./img-gallery/solaireworm.png" alt="">
+                    </div>
+                    <div class="img">
+                        <img class='img-gallery' src="./img-gallery/spoopy color.png" alt="">
+                    </div>
+                    <div class="img">
+                        <img class='img-gallery' src="./img-gallery/sus.png" alt="">
+                    </div>
+                    <div class="img">
+                        <img class='img-gallery' src="./img-gallery/toes-for-redbubble.png" alt="">
+                    </div>
+                    <div class="img">
+                        <img class='img-gallery' src="./img-gallery/skullnumber 2.png" alt="">
+                    </div>
+                    <div class="img">
+                        <img class='img-gallery' src="./img-gallery/toxel.png" alt="">
+                    </div>
+                    <div class="img">
+                        <img class='img-gallery' src="./img-gallery/trust.png" alt="">
+                    </div>
+                    <div class="img">
+                        <img class='img-gallery' src="./img-gallery/tsunimon.png" alt="">
+                    </div>
+                    <div class="img">
+                        <img class='img-gallery' src="./img-gallery/Untitled16.png" alt="">
+                    </div>
+                    <div class="img">
+                        <img class='img-gallery' src="./img-gallery/wahh.png" alt="">
+                    </div>
+                    <!-- <div class="img">
+                        <img class='img-gallery' src="./img-gallery/" alt="">
+                    </div> -->
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            © Damien Darko. All rights reserved.
+        </div>
+    </div>
+</body>
+
+</html>

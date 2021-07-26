@@ -1,0 +1,1 @@
+[![wakatime](https://wakatime.com/badge/github/djangothesolarboy/new-portfolio.svg)](https://wakatime.com/badge/github/djangothesolarboy/new-portfolio)

@@ -1,0 +1,50 @@
+.about-icon {
+    display: flex;
+    justify-self: flex-end;
+    align-self: center;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+}
+
+.about_content {
+    padding: 20px;
+}
+
+.body_title {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.205);
+}
+
+.about {
+    display: flex;
+    padding: 20px;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.interests_container {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.about-icon_container {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.about-icon_img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+}
+
+.resume {
+    text-decoration: none;
+    color: aliceblue;
+    font-size: larger;
+}
+
+.resume:hover {
+    color: black;
+    transform: scale(1.5);
+}

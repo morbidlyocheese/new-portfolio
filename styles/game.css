@@ -1,0 +1,20 @@
+canvas {
+    display: flex;
+    padding: 10px;
+    margin-top: -340px;
+    margin-left: 90px;
+    position: relative;
+}
+
+.main_content {
+    margin-top: -180px;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.main_container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 500px;
+}

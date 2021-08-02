@@ -13,6 +13,11 @@
     padding-left: 10px;
 }
 
+.body_content-left {
+    margin-top: -5px;
+    padding-right: 10px;
+}
+
 .project-2-about {
     justify-content: flex-end;
 }
@@ -41,7 +46,7 @@
 .project-subtitle {
     position: relative;
     z-index: -1;
-    margin-top: -45px;
+    margin-top: -43px;
     padding-left: 5px;
 }
 

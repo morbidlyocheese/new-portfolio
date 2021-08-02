@@ -1,0 +1,17 @@
+.container {
+    width: 60%;
+}
+
+.post-link {
+    color:aliceblue;
+    text-decoration: none;
+    font-size: 1.2em;
+}
+
+.post-link:hover {
+    color: black;
+}
+
+.body_title {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.205);
+}

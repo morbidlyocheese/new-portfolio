@@ -4,5 +4,6 @@ kaboom({
     crisp: true, // for crisp pixel art
     width: 320, // width of canvas
     height: 240, // height of canvas
-    scale: 3 // scales the game up
+    canvas: document.getElementById("game"),
+    scale: 1 // scales the game up
 });

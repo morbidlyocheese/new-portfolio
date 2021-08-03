@@ -7,12 +7,6 @@ kaboom({
     scale: 2 // scales the game up
 });
 
-// creates the order of the layers
-layers([
-    'bg',
-    'obj',
-    'ui',
-], 'obj'); // defaults as obj
 
 //////////////////////////////////////////////////////////
 //                      SPRITES                         //
@@ -56,11 +50,15 @@ loadSprite('sign', './data/game-assets/imgs/sign-16x16.png');
 //////////////////////////////////////////////////////////
 //                  BACKGROUND SPRITES                  //
 //////////////////////////////////////////////////////////
+loadSprite('icon', './data/game-assets/imgs/sbl-icon_transp.png');
+
 loadSprite('brick-bot-mid', './data/game-assets/imgs/backgrounds/brick-bot.png');
 loadSprite('brick-left', './data/game-assets/imgs/backgrounds/brick_left-bot-end.png');
 loadSprite('brick-right', './data/game-assets/imgs/backgrounds/brick_right-top-end.png');
 loadSprite('brick-one', './data/game-assets/imgs/backgrounds/brick_one.png');
 loadSprite('lava-brick-one', './data/game-assets/imgs/backgrounds/lava-brick_one.png');
+
+loadSprite('bg', './data/game-assets/imgs/backgrounds/bg.png');
 
 //////////////////////////////////////////////////////////
 //                  SOUNDS                              //
@@ -70,14 +68,60 @@ loadSound('hurt', './data/game-assets/audio/hurt.wav');
 loadSound('hit', './data/game-assets/audio/hit.wav');
 
 //////////////////////////////////////////////////////////
+//                    SPLASH SCENE                      //
+//////////////////////////////////////////////////////////
+scene("splash", () => {
+    // creates the order of the layers
+    layers([
+        'bg',
+        'obj',
+        'ui',
+    ], 'obj'); // defaults as obj
+
+    const bg = add([
+        sprite('bg'),
+        pos(0, 0),
+        layer('bg')
+    ]);
+
+    const icon = add([
+        sprite('icon'),
+        pos(150, 100),
+        layer('obj')
+    ]);
+
+    add([
+        text(`
+            A Damien Darko Game
+        -Press Space to Continue-
+        `, 10),
+        pos(-50, 120),
+        layer('ui'),
+    ]);
+
+    // on key press, switches scenes
+    keyPress('space', () => {
+        play('blip', {
+            volume: 5.0
+        });
+        go('main', 0);
+    });
+});
+//////////////////////////////////////////////////////////
 //                      MENU SCENE                      //
 //////////////////////////////////////////////////////////
 scene("main", () => {
+    // creates the order of the layers
+    layers([
+        'bg',
+        'obj',
+        'ui',
+    ], 'obj'); // defaults as obj
     // add a text at position
     add([
         text(`
             -Controls-
-        Start: 
+        Start Game: 
             Space
         Movement: 
             WASD or Arrows
@@ -85,9 +129,17 @@ scene("main", () => {
             W, Space or Up
         Restart: 
             R
+        Main Menu:
+            Escape
         `, 10),
         pos(0, 50),
         layer('ui'),
+    ]);
+
+    const bg = add([
+        sprite('bg'),
+        pos(0, 0),
+        layer('bg')
     ]);
 
     // on key press, switches scenes
@@ -103,6 +155,13 @@ scene("main", () => {
 //                      GAME SCENE                      //
 //////////////////////////////////////////////////////////
 scene('game', (levelIdx) => {
+    // creates the order of the layers
+    layers([
+        'bg',
+        'sign',
+        'obj',
+        'ui',
+    ], 'obj'); // defaults as obj
     //                      CONTROLS                        //
     const left = ['a', 'left'];
     const right = ['d', 'right'];
@@ -113,10 +172,18 @@ scene('game', (levelIdx) => {
         pos(100, 100),
         scale(1),
         origin('center'),
+        layer('obj'),
         body({ jumpForce: 260, }),
         'player', // tags
         'killable', // tags
         { speed: 160 },
+    ]);
+
+    const bg = add([
+        sprite('bg'),
+        pos(0, 0),
+        'bg', // tag
+        layer('bg') 
     ]);
 
     const signs = {
@@ -130,15 +197,23 @@ scene('game', (levelIdx) => {
         },
         'c': {
             sprite: 'sign',
-            msg: `You can browse things I've \nworked on using the links\nabove`
+            msg: `Walk to each sign to find\nout a little bit more about me!`
         },
         'd': {
             sprite: 'sign',
+            msg: `You can also browse things \nI've worked on using the \nlinks above`
+        },
+        'e': {
+            sprite: 'sign',
             msg: `Or take a look at my socials\nto the left including\na link to download my resume`
+        },
+        'f': {
+            sprite: 'sign',
+            msg: `I made this little game\nusing Kaboomjs`
         },
         'z': {
             sprite: 'sign',
-            msg: `I made this little game using Kaboomjs`
+            msg: `And I made all the sprites\nusing Aseprite`
         }
     };
 
@@ -146,12 +221,12 @@ scene('game', (levelIdx) => {
         [
             '=------------------]',
             '(                  )',
-            '(                  )',
-            '(                  )',
-            '(                  )',
-            '(                  )',
-            '(                  )',
-            '(                  )',
+            '(   z              )',
+            '(   (((            )',
+            '(      f           )',
+            '(      (((         )',
+            '(         e        )',
+            '(         (((      )',
             '(            d     )',
             '(            (((   )',
             '(                 c)',
@@ -186,22 +261,11 @@ scene('game', (levelIdx) => {
             sprite('brick-one'),
             solid()
         ],
-        '^': [
-            sprite('lava-brick-one'),
-            solid(),
-            'hurt'
-        ],
-        'x': [
-            sprite('lava-brick-one'),
-            solid(),
-            'door'
-        ],
         any(s) {
             const sign = signs[s];
             if (sign) {
                 return [
                     sprite(sign.sprite),
-                    solid(),
                     'sign',
                     {
                         msg: sign.msg
@@ -218,26 +282,24 @@ scene('game', (levelIdx) => {
             text(msg, 7, {
                 width: 200
             }),
+            layer('ui'),
             pos(50, 130)
         ]);
     };
 
-    player.collides('sign', (ch) => {
-        keyPress([left, right], () => {
-            if (talking) {
-                destroy(talking);
-                talking = null;
-            }
+    overlaps('sign', 'player', (sign, player) => {
+        readd(player);
+        every('sign', (sign) => {
+            sign.solid = false;
         });
-        talk(ch.msg);
-    });
-
-    player.collides('door', () => {
-        if (levelIdx + 1 < levels.length) {
-            go('game', levelIdx + 1);
+        if (talking) {
+            destroy(talking);
+            talking = null;
+        } else {
+            talk(sign.msg);
         }
-    })
-
+    });
+    
     //////////////////////////////////////////////////////////
     //                      CONTROLS                        //
     /////////////////////////////////////////////////////////
@@ -247,6 +309,13 @@ scene('game', (levelIdx) => {
             volume: 1.0
         });
         go('game', 0);
+    });
+    // go to menu
+    keyPress('escape', () => {
+        play('blip', {
+            volume: 1.0
+        });
+        go('main', 0);
     });
 
     keyDown([left, right], () => {
@@ -291,4 +360,4 @@ scene('game', (levelIdx) => {
 });
 
 // start the game
-start("main");
+start("splash");

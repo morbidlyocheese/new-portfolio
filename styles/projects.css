@@ -41,6 +41,7 @@
     position: relative;
     justify-content: flex-start;
     z-index: 1;
+    margin-bottom: 40px;
 }
 
 .project-subtitle {
@@ -48,6 +49,7 @@
     z-index: -1;
     margin-top: -43px;
     padding-left: 5px;
+    margin-bottom: 40px;
 }
 
 .project-img {

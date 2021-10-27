@@ -29,6 +29,7 @@ body {
 h1, h2, h3, h4, h5, h6, a {
     font-family: 'Bebas Neue', cursive;
 }
+
 h2, h3, h4, h5, h6 {
     color: rgb(87, 87, 87);
     border-bottom: 1px solid rgba(0, 0, 0, 0.205);
@@ -83,6 +84,7 @@ h2, h3, h4, h5, h6 {
 }
 
 .main_container {
+    margin-top: 50px;
     padding: 20px;
 }
 

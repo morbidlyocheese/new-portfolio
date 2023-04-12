@@ -92,7 +92,7 @@ scene("splash", () => {
 
     add([
         text(`
-            A Damien Darko Game
+            A Damien Jacobson Game
         -Press Space to Continue-
         `, 10),
         pos(-50, 120),
